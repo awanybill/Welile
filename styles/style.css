@@ -1,0 +1,370 @@
+/* styles/style.css */
+
+/* Custom Properties (CSS Variables) - Refined Palette */
+:root {
+    --primary-color: #4C2E86; /* Your core brand purple */
+    --secondary-color: #7B50C2; /* A slightly lighter, more vibrant purple for accents */
+    --accent-color: #FFD700; /* A soft gold/yellow for subtle highlights (optional, adjust if not desired) */
+    --background-light: #F8F8F8; /* Very light grey for main background */
+    --background-card: #FFFFFF; /* Pure white for cards/sections */
+    --text-dark: #2C3E50; /* Darker grey for main body text (softer than pure black) */
+    --text-light: #ECF0F1; /* Off-white for text on dark backgrounds */
+    --border-color: #E0E0E0; /* Light grey for subtle borders */
+    --shadow-light: rgba(0, 0, 0, 0.08); /* Lighter shadow for a smoother feel */
+    --hover-effect: rgba(76, 46, 134, 0.1); /* Primary color with transparency for hover effects */
+}
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Modern, readable font */
+    line-height: 1.7; /* Enhanced readability for paragraphs */
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh; /* Ensures footer stays at bottom if content is short */
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+header {
+    background-color: var(--background-card); /* White header background */
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px var(--shadow-light); /* Softer shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    /* No filter needed as background is white now, but ensure good size */
+    width: 120px; /* Maintain original size or adjust as needed */
+    height: auto;
+    display: block; /* Ensures no extra space below image */
+}
+
+/* ... (previous CSS code) ... */
+
+nav ul li a {
+    color: var(--primary-color); /* Navigation links use primary color */
+    font-weight: 500;
+    padding: 0.5rem 0; /* Changed padding to 0 on sides to make underline fit text better */
+    position: relative; /* For underline effect */
+    /* Removed overflow: hidden; as it's not strictly necessary with this new approach */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Start in the middle */
+    bottom: -3px; /* Adjust position relative to the text, a bit lower */
+    width: 0%; /* Start with 0 width */
+    height: 2px;
+    background-color: var(--secondary-color); /* Underline color */
+    transform: translateX(-50%); /* Center the 0-width element */
+    transition: width 0.3s ease-out; /* Transition the width */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Expand to full width on hover */
+}
+
+/* ... (rest of the CSS code) ... */main h1 {
+    font-family: 'Montserrat', sans-serif; /* A strong, modern sans-serif for headings */
+    font-size: 3.5rem; /* Larger, more impactful heading */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 3.5rem; /* More space below hero text */
+    line-height: 1.15;
+    font-weight: 800; /* Extra bold */
+    letter-spacing: -0.04em; /* Slightly tighter letter spacing */
+    padding-top: 3rem; /* More space from header */
+}
+
+main h1 br {
+    display: none; /* Hide <br> on larger screens */
+}
+
+section {
+    background-color: var(--background-card);
+    padding: 3rem; /* Generous padding for content */
+    margin-bottom: 2.5rem;
+    border-radius: 12px; /* Smoother rounded corners */
+    box-shadow: 0 8px 30px var(--shadow-light); /* More pronounced, soft shadow */
+    border: 1px solid var(--border-color); /* Subtle border for definition */
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: var(--text-dark); /* Using dark text for subheadings */
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.4rem;
+    color: var(--primary-color); /* Keeping primary color for contact types */
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.2rem; /* Slightly more space between paragraphs */
+    line-height: 1.8; /* Increased line height for better readability */
+    font-size: 1.05rem; /* Slightly larger base font size */
+    color: var(--text-dark);
+}
+
+section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Contact information specific styling */
+#about-us p a {
+    font-weight: 500;
+}
+
+#about-us p.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2.5rem 5%;
+    margin-top: 4rem; /* More space before footer */
+}
+
+footer h3 {
+    color: var(--text-light); /* Ensure footer heading is light */
+    margin-bottom: 1.8rem;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem; /* Increased gap */
+}
+
+footer ul li a {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 1.05rem; /* Slightly larger text */
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+footer ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust position */
+    width: 100%;
+    height: 1px; /* Thinner underline */
+    background-color: var(--text-light);
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: bottom center; /* Scale from center */
+    transition: transform 0.3s ease-out;
+}
+
+footer ul li a:hover::after {
+    transform: scaleX(1); /* Scale up on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    main h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    section {
+        padding: 2.5rem;
+    }
+}
+
+/* Smaller Tablets */
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    main h1 br {
+        display: block; /* Show <br> on smaller screens for better line breaks */
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    main {
+        padding: 2rem 1rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    footer h3 {
+        font-size: 1.6rem;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Add these styles to your style.css */
+
+/* Contact Icons and Links */
+.contact-link {
+    display: inline-flex; /* Allows icon and text to sit side-by-side */
+    align-items: center; /* Vertically aligns icon and text */
+    gap: 0.7rem; /* Space between icon and text */
+    margin-bottom: 0.5rem; /* Space between each contact line */
+    color: var(--text-dark); /* Ensure text color is dark */
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    color: var(--primary-color); /* Hover effect on text */
+}
+
+.contact-icon {
+    width: 24px; /* Size of your icons */
+    height: 24px;
+    vertical-align: middle; /* Aligns with text baseline */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.contact-link:hover .contact-icon {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* You might want to remove or adjust these if you use the new .contact-link structure */
+#about-us p.contact-info { /* This class might become redundant */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
