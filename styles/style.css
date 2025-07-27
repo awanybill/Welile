@@ -132,7 +132,7 @@ h2 {
 h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
-    color: var(--text-dark); /* Using dark text for subheadings */
+    color: #4C2E86; /* Using dark text for subheadings */
     margin-top: 2.5rem;
     margin-bottom: 1.2rem;
     font-weight: 600;
